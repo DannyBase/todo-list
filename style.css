@@ -4,45 +4,39 @@
 
 body {
   background-color: #5cdb95;
-  display: flex;
-  gap: 4rem;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  text-align: center;
+  margin: 50px auto;
 }
 
 h1 {
-  justify-self: flex-end;
   font-size: 3rem;
   color: #05386b;
 }
 
 .application {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+
   max-width: 500px;
 }
 
-ul {
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.incompelete,
-.compeleted {
+.incompelete {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
+
+
+.compelete-list,.incompelete-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+
+}
+
+
 
 .compeleted{
     margin-bottom: 60px;
@@ -50,7 +44,12 @@ ul {
 
 .create-task {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+
+}
+
+.create-task .wrapper{
+  display: flex;
 }
 
 .create-task .task {
@@ -84,13 +83,19 @@ li {
   border: 2px solid #edf5e1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 2rem;
   padding: 0.6rem 1.2rem;
   color: #05386b;
+  width: 100%;
 }
 
-li form {
+li > form {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
@@ -123,7 +128,13 @@ button:hover {
 }
 
 
-.error{
-    color: #fc4445;
-    border-color: red;
+
+    
+
+.err-msg{
+  color: #fc4445;
+}
+
+.suce-msg{
+  color: rgb(21, 100, 21);
 }
