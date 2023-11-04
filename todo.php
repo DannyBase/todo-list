@@ -18,37 +18,35 @@
   </form>
   <p class="error-msg"><?= $error ?></p>
   <p class="success-msg"><?= $success_msg ?></p>
-  <?php if($tasks):?>
-    <?php foreach($tasks as $task) : ?>
-      <div class="list-item">
-      <?= $task['task'] ?>
-      <form action="" method="post">
-        <button class="btn btn-check" name="check" value="<?= $task['id'] ?>"><i class="fa-regular fa-square"></i></button>
-        <button class="btn btn-trash" name="delete" value="<?= $task['id'] ?>"><i class="fa fa-trash"></i></button>
-      </form>
-    </div>
-  <?php endforeach ?>
-  <?php endif ?>
-  
   <div class="incompelete">
-   
+    <?php if ($tasks) : ?>
+      <?php foreach ($tasks as $task) : ?>
+        <div class="list-item">
+          <?= $task['task'] ?>
+          <form action="" method="post">
+            <button class="btn btn-check" name="check" value="<?= $task['id'] ?>"><i class="fa-regular fa-square"></i></button>
+            <button class="btn btn-trash" name="delete" value="<?= $task['id'] ?>"><i class="fa fa-trash"></i></button>
+          </form>
+        </div>
+      <?php endforeach ?>
+    <?php endif ?>
   </div>
 
   <h3>Compeleted</h3>
   <div class="compeleted">
-    <?php if($compelete_tasks) : ?>
-    <?php foreach($compelete_tasks as $compelete_task) : ?>
-      <div class="list-item compelete">
-       <?= $compelete_task['task'] ?>
-      <form action="" method="post">
-        <button class="btn btn-uncheck" name="uncheck" value="<?= $compelete_task['id'] ?>"><i class="fa-regular fa-check-square"></i></button>
-        <button class="btn btn-trash" name="delete" value="<?= $compelete_task['id'] ?>"><i class="fa fa-trash"></i></button>
-      </form>
-    </div>
-    <?php endforeach ?>
-    <?php endif  ?>
-   
+  <?php if ($compelete_tasks) : ?>
+      <?php foreach ($compelete_tasks as $compelete_task) : ?>
+        <div class="list-item compelete">
+          <?= $compelete_task['task'] ?>
+          <form action="" method="post">
+            <button class="btn btn-uncheck" name="uncheck" value="<?= $compelete_task['id'] ?>"><i class="fa-regular fa-check-square"></i></button>
+            <button class="btn btn-trash" name="delete" value="<?= $compelete_task['id'] ?>"><i class="fa fa-trash"></i></button>
+          </form>
+        </div>
+      <?php endforeach ?>
+  <?php endif  ?>
   </div>
+
 
 </body>
 

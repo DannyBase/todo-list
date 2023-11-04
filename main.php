@@ -21,6 +21,10 @@ if (isset($_POST['add'])) {
 
     if (empty($task)) {
         $error = "Task Field is required";
+    }else{
+        if(strlen($task) < 6){
+        $error = "Task Field should contain at least 6 characters";
+        }
     }
 
     if (empty($error)) {

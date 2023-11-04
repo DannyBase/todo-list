@@ -17,7 +17,7 @@ h1 {
 h3{
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 250px;
   color: #069044;
 }
 
@@ -52,11 +52,17 @@ h3{
   width: 20%;
   padding: .5em;
   border-radius: .4em;
+  z-index: 1;
 
 }
 
+.wrapper .btn-add:hover{
+  color: #5cdb95;
+  opacity: 1;
+}
+
 .incompelete{
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .list-item{
@@ -69,6 +75,12 @@ h3{
   font-size: 1.2rem;
   flex-direction: column;
   gap: .6rem;
+  transition: all 1s ease-in-out;
+}
+
+.list-item:hover{
+  transform: scale(1.1);
+  margin-bottom:16px ;
 }
 
 .list-item form{
@@ -80,8 +92,8 @@ h3{
 .compelete{
   border-color: #069044;
   color: #069044;
+  
 }
-
 
 
 
@@ -102,9 +114,15 @@ h3{
 }
 
 .btn-uncheck{
-  color: #069044;
+  color: hsl(147, 92%, 29%);
+}
+button{
+  transition: all 1s ease-in-out;
 }
 
+button:hover{
+  opacity: 0.7;
+}
 
 .error-msg{
   color: #e33131;
@@ -113,3 +131,22 @@ h3{
 .success-msg{
   color: #069044;
 }
+
+
+
+@media (max-width:600px) {
+
+ 
+  .list-item:hover{
+   transform: scale(1);
+ }
+  
+ }
+
+
+ @media (max-width:500px) {
+  body{
+   padding: 1rem;
+  }
+  
+ }
