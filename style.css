@@ -5,136 +5,111 @@
 body {
   background-color: #5cdb95;
   margin: 50px auto;
+  max-width: 500px;
 }
 
 h1 {
   font-size: 3rem;
   color: #05386b;
+  text-align: center;
 }
 
-.application {
-
-  max-width: 500px;
+h3{
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30px;
+  color: #069044;
 }
 
-.incompelete {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.wrapper{
+  position: relative;
+  
 }
 
-
-.compelete-list,.incompelete-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1.2rem;
-
-}
-
-
-
-.compeleted{
-    margin-bottom: 60px;
-}
-
-.create-task {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.create-task .wrapper{
-  display: flex;
-}
-
-.create-task .task {
-  width: 80%;
-  padding: 0.6rem 0.6rem;
-  border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-  border: 2px solid #edf5e1;
-  border-right: none;
-  background-color: transparent;
-  outline: none;
-}
-
-::placeholder {
-  font-size: 1rem;
-  color: #05386b;
-}
-
-.create-task .add-btn {
-  width: 20%;
-  border-top-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3rem;
-  border: none;
-  font-size: inherit;
-  background-color: #05386b;
-  color: #edf5e1;
-}
-
-li {
-  border-radius: 0.3em;
-  border: 2px solid #edf5e1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 0.6rem 1.2rem;
-  color: #05386b;
+.wrapper input[type="text"]{
   width: 100%;
+  padding: 1rem;
+  border-radius: .4em;
+  border: none;
+  background-color: #edf5e1;
+  font-size: 1.2rem;
+  outline: none;
+  color: #05386b;
 }
 
-li > form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-h3 {
-  color: rgb(21, 100, 21);
+::placeholder{
+  color: #05386b;
   font-size: 1.2rem;
 }
 
-.check,
-.delete,
-.uncheck {
-  border: none;
-  background-color: transparent;
-  font-size: 0.9rem;
+
+.wrapper .btn-add{
+  position: absolute;
+  background-color: #05386b;
+  color: #edf5e1;
+  right: 5px;
+  top: 7px;
+  width: 20%;
+  padding: .5em;
+  border-radius: .4em;
+
 }
 
-.check {
+.incompelete{
+  margin-top: 30px;
+}
+
+.list-item{
+  display: flex;
+  border: 2px solid #edf5e1;
+  padding: .5rem;
+  border-radius: .4em;
+  margin-bottom: 14px;
+  color: #05386b;
+  font-size: 1.2rem;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.list-item form{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.compelete{
+  border-color: #069044;
+  color: #069044;
+}
+
+
+
+
+
+.btn{
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.1rem;
+}
+
+.btn-check{
   color: #05386b;
 }
 
-.delete {
-  color: #fc4445;
+.btn-trash{
+  color: #e33131;
 }
 
-.uncheck {
-  color: rgb(21, 100, 21);
-}
-
-button:hover {
-  opacity: 0.7;
+.btn-uncheck{
+  color: #069044;
 }
 
 
-
-    
-
-.err-msg{
-  color: #fc4445;
+.error-msg{
+  color: #e33131;
 }
 
-.suce-msg{
-  color: rgb(21, 100, 21);
+.success-msg{
+  color: #069044;
 }

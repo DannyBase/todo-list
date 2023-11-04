@@ -16,7 +16,7 @@ function getConn()
     }
 }
 
-$conn = getConn();
+
 
 
 function addTask($conn, $task)
@@ -37,16 +37,17 @@ function addTask($conn, $task)
     }
 }
 
-function getTask($conn){
-    $sql = "SELECT id, task, check_task FROM tasks ORDER BY date";
+function getTask($conn)
+{
+    $sql = "SELECT id,task FROM tasks WHERE checked = 0 ORDER BY date";
 
     $stmt = mysqli_prepare($conn, $sql);
-    
-    if($stmt === false){
+
+    if ($stmt === false) {
         echo mysqli_error($conn);
-    }else{
+    } else {
         if (mysqli_stmt_execute($stmt)) {
-          $result =  mysqli_stmt_get_result($stmt);
+            $result =  mysqli_stmt_get_result($stmt);
         } else {
             echo mysqli_stmt_error($stmt);
         }
@@ -55,27 +56,78 @@ function getTask($conn){
     return $result;
 }
 
-$tasks = getTask($conn);
 
-foreach($tasks as $task){
-    var_dump($task);
+function getCompeletedTask($conn)
+{
+    $sql = "SELECT id,task FROM tasks WHERE checked = 1 ORDER BY date";
+
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        echo mysqli_error($conn);
+    } else {
+        if (mysqli_stmt_execute($stmt)) {
+            $result =  mysqli_stmt_get_result($stmt);
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
+    }
+
+    return $result;
 }
 
 
-$error = "";
-$success_msg = "";
+function AddToCompeleted($conn, $task_id)
+{
+    $sql = "UPDATE tasks SET checked = 1
+    WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
 
-if (isset($_POST['add'])) {
-    $task = $_POST['task'];
+    if ($stmt === false) {
+        echo mysqli_error($conn);
+    } else {
+        mysqli_stmt_bind_param($stmt, 'i', $task_id);
 
-    $task = htmlspecialchars(strip_tags($task));
-
-    if (empty($task)) {
-        $error = "Task Field is required";
+        if (mysqli_stmt_execute($stmt)) {
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
     }
+}
 
-    if (empty($error)) {
-        addTask($conn, $task);
-        $success_msg = "Task Added";
+
+function removeFromCompeleted($conn, $task_id)
+{
+    $sql = "UPDATE tasks SET checked = 0
+    WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        echo mysqli_error($conn);
+    } else {
+        mysqli_stmt_bind_param($stmt, 'i', $task_id);
+
+        if (mysqli_stmt_execute($stmt)) {
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
+    }
+}
+
+function deleteTask($conn, $task_id)
+{
+    $sql = "DELETE FROM tasks
+    WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt === false) {
+        echo mysqli_error($conn);
+    } else {
+        mysqli_stmt_bind_param($stmt, 'i', $task_id);
+
+        if (mysqli_stmt_execute($stmt)) {
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
     }
 }
