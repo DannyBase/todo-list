@@ -29,7 +29,6 @@ if (isset($_POST['add'])) {
 
     if (empty($error)) {
         addTask($conn, $task);
-        $success_msg = "Task Added";
         header("Location:todo.php");
         exit;
     }

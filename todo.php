@@ -17,7 +17,6 @@
     <input type="text" placeholder="Enter task" name="task"><button class="btn btn-add" name="add">Add</button>
   </form>
   <p class="error-msg"><?= $error ?></p>
-  <p class="success-msg"><?= $success_msg ?></p>
   <div class="incompelete">
     <?php if ($tasks) : ?>
       <?php foreach ($tasks as $task) : ?>

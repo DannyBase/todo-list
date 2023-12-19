@@ -1,17 +1,27 @@
 * {
   box-sizing: border-box;
+
+}
+
+@font-face {
+  font-family: 'amagro';
+  src: url("font/amagro/Amagro.ttf") format("truetype");
+
 }
 
 body {
   background-color: #5cdb95;
   margin: 50px auto;
   max-width: 500px;
+  font-family:'amagro', sans-serif ;
 }
 
 h1 {
   font-size: 3rem;
   color: #05386b;
   text-align: center;
+  font-style: italic;
+  text-transform: lowercase;
 }
 
 h3{
@@ -35,11 +45,15 @@ h3{
   font-size: 1.2rem;
   outline: none;
   color: #05386b;
+  font-family: inherit;
+
 }
 
 ::placeholder{
   color: #05386b;
   font-size: 1.2rem;
+  font-family: inherit;
+
 }
 
 
@@ -118,6 +132,7 @@ h3{
 }
 button{
   transition: all 1s ease-in-out;
+  font-family: inherit;
 }
 
 button:hover{
